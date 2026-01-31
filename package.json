@@ -1,0 +1,24 @@
+{
+  "name": "interview-viewer",
+  "version": "1.0.0",
+  "description": "A simple project viewer for interview-practice",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "viewer",
+    "interview",
+    "practice"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}
