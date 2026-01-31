@@ -81,13 +81,19 @@ export default async function handler(req, res) {
     // Decode URL-encoded characters
     filePath = decodeURIComponent(filePath);
 
-    // Build full path from public directory
-    const fullPath = path.join(__dirname, "..", "public", filePath);
+    console.log("[Handler] Incoming URL:", req.url);
+    console.log("[Handler] File path:", filePath);
 
-    // Security check: ensure the path doesn't escape the public directory
+    // Build full path from root directory (where index.html is located)
+    const fullPath = path.join(__dirname, "..", filePath);
+    console.log("[Handler] Full path:", fullPath);
+
+    // Security check: ensure the path doesn't escape the project directory
     const normalizedPath = path.normalize(fullPath);
-    const publicRoot = path.join(__dirname, "..", "public");
-    if (!normalizedPath.startsWith(publicRoot)) {
+    const projectRoot = path.join(__dirname, "..");
+    console.log("[Handler] Normalized path:", normalizedPath);
+    console.log("[Handler] Project root:", projectRoot);
+    if (!normalizedPath.startsWith(projectRoot)) {
       return res.status(403).json({
         success: false,
         error: "Access denied",
@@ -96,6 +102,10 @@ export default async function handler(req, res) {
 
     // Read the file
     const content = await fs.readFile(normalizedPath, "utf-8");
+    console.log(
+      "[Handler] File read successfully:",
+      normalizedPath.substring(normalizedPath.lastIndexOf("\\") + 1),
+    );
 
     // Get file extension and set content type
     const ext = path.extname(filePath);
@@ -111,7 +121,11 @@ export default async function handler(req, res) {
     // If file not found, try to serve index.html for SPA routing
     if (error.code === "ENOENT" && req.url !== "/") {
       try {
-        const indexPath = path.join(__dirname, "..", "public", "index.html");
+        const indexPath = path.join(__dirname, "..", "index.html");
+        console.log(
+          "[Handler] File not found, trying to serve index.html from:",
+          indexPath,
+        );
         const indexContent = await fs.readFile(indexPath, "utf-8");
         res.setHeader("Content-Type", "text/html; charset=utf-8");
         res.status(200).send(indexContent);
@@ -123,7 +137,8 @@ export default async function handler(req, res) {
     }
 
     // Log error for debugging
-    console.error("Error in catch-all handler:", error);
+    console.error("[Handler] Error:", error.code, error.message);
+    console.error("[Handler] Full path attempted:", fullPath);
 
     // Return 404
     res.status(404).send(`
