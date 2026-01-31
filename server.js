@@ -16,12 +16,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-// Path đến thư mục interview-practice
-const INTERVIEW_PRACTICE_PATH = path.join(
-  __dirname,
-  "..",
-  "interview-practice",
-);
+// Path đến thư mục data (chứa nội dung interview-practice)
+const INTERVIEW_PRACTICE_PATH = path.join(__dirname, "data");
 
 /**
  * Lấy cấu trúc thư mục đệ quy

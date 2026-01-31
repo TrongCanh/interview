@@ -22,6 +22,8 @@ const tocContent = document.getElementById("tocContent");
 const toggleTocBtn = document.getElementById("toggleTocBtn");
 const closeTocBtn = document.getElementById("closeTocBtn");
 const contentArea = document.querySelector(".content");
+const menuToggle = document.getElementById("menuToggle");
+const sidebar = document.querySelector(".sidebar");
 
 // File icon mapping
 const fileIcons = {
@@ -46,6 +48,11 @@ function init() {
  * Setup event listeners
  */
 function setupEventListeners() {
+  // Menu toggle for mobile
+  menuToggle.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+  });
+
   // Search button
   searchBtn.addEventListener("click", handleSearch);
   searchInput.addEventListener("keypress", (e) => {
