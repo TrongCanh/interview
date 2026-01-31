@@ -4,13 +4,12 @@
 
 ```
 interview-viewer/
+├── index.html             # Main HTML page (static file)
+├── styles.css             # Styles (static file)
+├── app.js                 # Frontend JavaScript (static file)
 ├── server.js              # Local development server (không dùng trên Vercel)
 ├── package.json           # Dependencies & scripts
 ├── vercel.json            # Vercel configuration
-├── public/                # Static files (HTML, CSS, JS)
-│   ├── index.html
-│   ├── styles.css
-│   └── app.js
 ├── api/                   # Vercel Serverless Functions
 │   ├── tree.js            # GET /api/tree - Lấy cấu trúc thư mục
 │   ├── file.js            # GET /api/file?path=... - Đọc nội dung file
@@ -111,6 +110,18 @@ Không cần environment variables cho project này.
 
 ## 🔧 Troubleshooting / Xử lý sự cố
 
+### Lỗi: Giao diện trắng / White screen
+
+**Nguyên nhân / Cause:**
+
+- Static files không được serve đúng cách
+
+**Giải pháp / Solution:**
+
+- Đảm bảo file `index.html`, `styles.css`, `app.js` nằm ở thư mục gốc
+- Không đặt trong thư mục `public/` khi deploy lên Vercel
+- Kiểm tra logs trong Vercel Dashboard
+
 ### Lỗi: 404 Not Found
 
 **Giải pháp / Solution:**
@@ -203,6 +214,14 @@ npm install -g vercel
 cd interview-viewer
 vercel dev
 ```
+
+### Kiểm tra Build Logs
+
+1. Truy cập Vercel Dashboard
+2. Chọn project của bạn
+3. Click tab "Deployments"
+4. Chọn deployment gần nhất
+5. Xem Build Logs
 
 ---
 
