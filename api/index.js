@@ -81,13 +81,13 @@ export default async function handler(req, res) {
     // Decode URL-encoded characters
     filePath = decodeURIComponent(filePath);
 
-    // Build full path
-    const fullPath = path.join(__dirname, "..", filePath);
+    // Build full path from public directory
+    const fullPath = path.join(__dirname, "..", "public", filePath);
 
-    // Security check: ensure the path doesn't escape the project directory
+    // Security check: ensure the path doesn't escape the public directory
     const normalizedPath = path.normalize(fullPath);
-    const projectRoot = path.join(__dirname, "..");
-    if (!normalizedPath.startsWith(projectRoot)) {
+    const publicRoot = path.join(__dirname, "..", "public");
+    if (!normalizedPath.startsWith(publicRoot)) {
       return res.status(403).json({
         success: false,
         error: "Access denied",
@@ -111,7 +111,7 @@ export default async function handler(req, res) {
     // If file not found, try to serve index.html for SPA routing
     if (error.code === "ENOENT" && req.url !== "/") {
       try {
-        const indexPath = path.join(__dirname, "..", "index.html");
+        const indexPath = path.join(__dirname, "..", "public", "index.html");
         const indexContent = await fs.readFile(indexPath, "utf-8");
         res.setHeader("Content-Type", "text/html; charset=utf-8");
         res.status(200).send(indexContent);

@@ -1,13 +1,28 @@
 {
   "cleanUrls": true,
+  "env": {},
+  "functions": {
+    "api/**": {
+      "memory": 512,
+      "maxDuration": 10
+    }
+  },
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api/:path*"
+      "source": "/api/tree",
+      "destination": "/api/tree.js"
+    },
+    {
+      "source": "/api/file",
+      "destination": "/api/file.js"
+    },
+    {
+      "source": "/api/search",
+      "destination": "/api/search.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/$1"
+      "destination": "/api/index.js"
     }
   ]
 }
