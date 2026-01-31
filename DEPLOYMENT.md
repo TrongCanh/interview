@@ -4,13 +4,17 @@
 
 ```
 interview-viewer/
-├── server.js              # Node.js Express server
+├── server.js              # Local development server (không dùng trên Vercel)
 ├── package.json           # Dependencies & scripts
 ├── vercel.json            # Vercel configuration
 ├── public/                # Static files (HTML, CSS, JS)
 │   ├── index.html
 │   ├── styles.css
 │   └── app.js
+├── api/                   # Vercel Serverless Functions
+│   ├── tree.js            # GET /api/tree - Lấy cấu trúc thư mục
+│   ├── file.js            # GET /api/file?path=... - Đọc nội dung file
+│   └── search.js          # GET /api/search?q=... - Tìm kiếm file
 └── data/                  # Interview practice content
     ├── topics/            # JavaScript, React, TypeScript, etc.
     ├── leetcode/          # LeetCode solutions
@@ -60,7 +64,7 @@ vercel --prod
 cd interview-viewer
 git init
 git add .
-git commit -m "Initial commit"
+git commit -m "Ready for Vercel deployment"
 git branch -M main
 git remote add origin https://github.com/YOUR_USERNAME/interview-viewer.git
 git push -u origin main
@@ -97,7 +101,7 @@ Không cần environment variables cho project này.
 ## ✅ Kiểm tra sau khi Deploy / Post-Deployment Checklist
 
 - [ ] Truy cập URL được cung cấp bởi Vercel
-- [ ] Kiểm tra trang chủ hiển thị đúng
+- [ ] Kiểm tra trang chủ hiển thị đúng (`/` hoặc `/index.html`)
 - [ ] Kiểm tra API `/api/tree` hoạt động
 - [ ] Kiểm tra API `/api/file` hoạt động
 - [ ] Kiểm tra API `/api/search` hoạt động
@@ -106,6 +110,14 @@ Không cần environment variables cho project này.
 ---
 
 ## 🔧 Troubleshooting / Xử lý sự cố
+
+### Lỗi: 404 Not Found
+
+**Giải pháp / Solution:**
+
+- Đảm bảo thư mục `api/` có 3 file: `tree.js`, `file.js`, `search.js`
+- Kiểm tra file `vercel.json` có cấu hình đúng
+- Xem logs trong Vercel Dashboard
 
 ### Lỗi: "Cannot find module"
 
@@ -120,15 +132,17 @@ npm install
 
 **Giải pháp / Solution:**
 
-- Kiểm tra file `vercel.json` có đúng cấu trúc
-- Kiểm tra routes trong `vercel.json` match với API endpoints
+- Kiểm tra file trong thư mục `api/` có export default function
+- Kiểm tra CORS headers được set đúng
+- Xem logs trong Vercel Dashboard → Functions
 
 ### Lỗi: Không thể đọc file từ thư mục data / Cannot read files from data directory
 
 **Giải pháp / Solution:**
 
-- Đảm bảo thư mục `data/` được deploy cùng với project
-- Kiểm tra `INTERVIEW_PRACTICE_PATH` trong `server.js` trỏ đúng đường dẫn
+- Đảm bảo thư mục `data/` được commit và push lên GitHub
+- Kiểm tra `DATA_PATH` trong các file API trỏ đúng đường dẫn
+- Xem logs trong Vercel Dashboard
 
 ---
 
@@ -154,6 +168,7 @@ vercel --prod
 - **File Viewer**: Đọc nội dung file markdown, JavaScript, v.v.
 - **Search**: Tìm kiếm file theo tên
 - **Responsive**: Hoạt động tốt trên desktop và mobile
+- **Serverless Functions**: API endpoints chạy trên Vercel Edge Network
 
 ---
 
@@ -162,8 +177,32 @@ vercel --prod
 Nếu gặp vấn đề, hãy kiểm tra:
 
 1. [Vercel Documentation](https://vercel.com/docs)
-2. [Vercel CLI Documentation](https://vercel.com/docs/cli)
-3. Logs trong Vercel Dashboard
+2. [Vercel Functions Documentation](https://vercel.com/docs/functions)
+3. [Vercel CLI Documentation](https://vercel.com/docs/cli)
+4. Logs trong Vercel Dashboard
+
+---
+
+## 🔍 Debugging Tips
+
+### Kiểm tra Logs trong Vercel Dashboard
+
+1. Truy cập Vercel Dashboard
+2. Chọn project của bạn
+3. Click tab "Functions"
+4. Chọn function cần debug
+5. Xem logs và errors
+
+### Test API cục bộ / Test API locally
+
+```bash
+# Install Vercel CLI
+npm install -g vercel
+
+# Test locally
+cd interview-viewer
+vercel dev
+```
 
 ---
 

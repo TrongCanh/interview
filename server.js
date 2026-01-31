@@ -206,9 +206,14 @@ async function searchFiles(dirPath, relativePath, query, results) {
   }
 }
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`\n🚀 Interview Practice Viewer đang chạy tại:`);
-  console.log(`   http://localhost:${PORT}\n`);
-  console.log(`📁 Đang đọc từ: ${INTERVIEW_PRACTICE_PATH}\n`);
-});
+// Start server (chỉ chạy khi không phải trên Vercel)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Interview Practice Viewer đang chạy tại:`);
+    console.log(`   http://localhost:${PORT}\n`);
+    console.log(`📁 Đang đọc từ: ${INTERVIEW_PRACTICE_PATH}\n`);
+  });
+}
+
+// Export app cho Vercel
+module.exports = app;
