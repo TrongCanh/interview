@@ -1,25 +1,10 @@
 {
   "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/api/tree",
-      "destination": "/api/tree.js"
-    },
-    {
-      "source": "/api/file",
-      "destination": "/api/file.js"
-    },
-    {
-      "source": "/api/search",
-      "destination": "/api/search.js"
-    },
-    {
       "source": "/(.*)",
-      "destination": "/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "destination": "/public/$1"
     }
   ]
 }

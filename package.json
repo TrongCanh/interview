@@ -4,8 +4,7 @@
   "description": "A simple project viewer for interview-practice",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "build": "echo 'No build needed'"
   },
   "keywords": [
     "viewer",

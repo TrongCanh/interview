@@ -635,7 +635,7 @@ function handleScrollForTOC() {
     }
   });
 
-  // If no heading is in view, use the first visible heading
+  // If no heading is in view, use first visible heading
   if (!activeId) {
     for (let i = headings.length - 1; i >= 0; i--) {
       const heading = headings[i];
