@@ -14,7 +14,7 @@ const PORT = 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(".")); // Serve from root directory for both local and Vercel compatibility
 
 // Path đến thư mục data (chứa nội dung interview-practice)
 const INTERVIEW_PRACTICE_PATH = path.join(__dirname, "data");
