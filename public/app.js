@@ -37,9 +37,31 @@ const fileIcons = {
 };
 
 /**
+ * Configure marked library with highlight.js for syntax highlighting
+ */
+function configureMarked() {
+  marked.setOptions({
+    highlight: function (code, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        try {
+          return hljs.highlight(code, { language: lang }).value;
+        } catch (err) {
+          console.error("Highlight.js error:", err);
+        }
+      }
+      return hljs.highlightAuto(code).value;
+    },
+    langPrefix: "hljs language-",
+    breaks: true,
+    gfm: true,
+  });
+}
+
+/**
  * Initialize application
  */
 function init() {
+  configureMarked();
   loadFileTree();
   setupEventListeners();
 }
@@ -286,6 +308,8 @@ function renderFileContent(fileData) {
       </div>
     `;
     filePreview.innerHTML = content;
+    // Apply syntax highlighting to code blocks
+    highlightCodeBlocks();
     // Generate TOC after content is rendered
     setTimeout(() => generateTableOfContents(), 100);
     return;
@@ -664,6 +688,22 @@ function updateActiveTocItem(activeId) {
       // Scroll TOC to show active item
       link.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
+  });
+}
+
+/**
+ * Apply syntax highlighting to code blocks in markdown
+ */
+function highlightCodeBlocks() {
+  const markdownContent = document.getElementById("markdownContent");
+  if (!markdownContent) return;
+
+  // Find all code blocks
+  const codeBlocks = markdownContent.querySelectorAll("pre code");
+
+  codeBlocks.forEach((block) => {
+    // Apply highlight.js syntax highlighting
+    hljs.highlightElement(block);
   });
 }
 
