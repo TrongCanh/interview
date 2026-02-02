@@ -608,7 +608,13 @@ body {
   padding: 0;
   border-radius: 0;
   border: none;
-  color: var(--text-primary);
+  /* Allow highlight.js to control colors for syntax highlighting */
+  color: inherit;
+}
+
+/* Ensure highlight.js syntax highlighting works correctly */
+.markdown-content pre code.hljs {
+  color: inherit;
 }
 
 /* Blockquote */
