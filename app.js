@@ -36,6 +36,15 @@ const fileIcons = {
   ".txt": { icon: "fas fa-file-alt", color: "file" },
 };
 
+// LocalStorage keys
+const STORAGE_KEYS = {
+  LAST_FILE: "interview_viewer_last_file",
+  SCROLL_POSITION: "interview_viewer_scroll_position",
+};
+
+// Debounce timer for scroll saving
+let scrollSaveTimer = null;
+
 /**
  * Configure marked library with highlight.js for syntax highlighting
  */
@@ -117,6 +126,9 @@ function setupEventListeners() {
 
   // Scroll event for active TOC highlighting
   filePreview.addEventListener("scroll", handleScrollForTOC);
+
+  // Save scroll position on scroll (debounced)
+  filePreview.addEventListener("scroll", saveScrollPosition);
 }
 
 /**
@@ -134,6 +146,8 @@ async function loadFileTree() {
     if (result.success) {
       renderFileTree(result.data);
       updateStatus("Đã tải cấu trúc thư mục");
+      // Restore last file after tree is rendered
+      setTimeout(() => restoreLastFile(), 300);
     } else {
       showError("Không thể tải cấu trúc thư mục");
     }
@@ -274,6 +288,8 @@ async function loadFileContent(filePath) {
       updateBreadcrumb(filePath);
       updateFileInfo(result.data);
       updateStatus("Đã tải file");
+      saveLastFile(filePath);
+      restoreScrollPosition();
     } else {
       showError(result.error || "Không thể tải file");
     }
@@ -705,6 +721,114 @@ function highlightCodeBlocks() {
     // Apply highlight.js syntax highlighting
     hljs.highlightElement(block);
   });
+}
+
+/**
+ * Save last opened file to localStorage
+ * @param {string} filePath - Đường dẫn file
+ */
+function saveLastFile(filePath) {
+  try {
+    localStorage.setItem(STORAGE_KEYS.LAST_FILE, filePath);
+  } catch (error) {
+    console.error("Error saving to localStorage:", error);
+  }
+}
+
+/**
+ * Save scroll position to localStorage (debounced)
+ */
+function saveScrollPosition() {
+  clearTimeout(scrollSaveTimer);
+  scrollSaveTimer = setTimeout(() => {
+    try {
+      const scrollPosition = filePreview.scrollTop;
+      localStorage.setItem(STORAGE_KEYS.SCROLL_POSITION, scrollPosition);
+    } catch (error) {
+      console.error("Error saving scroll position:", error);
+    }
+  }, 500); // Debounce 500ms
+}
+
+/**
+ * Restore last opened file from localStorage
+ */
+async function restoreLastFile() {
+  try {
+    const lastFile = localStorage.getItem(STORAGE_KEYS.LAST_FILE);
+    if (lastFile) {
+      // Highlight and expand tree first
+      highlightFileInTree(lastFile);
+      // Then load file content
+      await loadFileContent(lastFile);
+    }
+  } catch (error) {
+    console.error("Error restoring last file:", error);
+  }
+}
+
+/**
+ * Restore scroll position from localStorage
+ */
+function restoreScrollPosition() {
+  try {
+    const scrollPosition = localStorage.getItem(STORAGE_KEYS.SCROLL_POSITION);
+    if (scrollPosition) {
+      // Wait for content to render
+      setTimeout(() => {
+        filePreview.scrollTop = parseInt(scrollPosition, 10);
+      }, 100);
+    }
+  } catch (error) {
+    console.error("Error restoring scroll position:", error);
+  }
+}
+
+/**
+ * Highlight file in tree
+ * @param {string} filePath - Đường dẫn file
+ */
+function highlightFileInTree(filePath, retryCount = 0) {
+  // Remove active class from all items
+  document
+    .querySelectorAll(".tree-item")
+    .forEach((el) => el.classList.remove("active"));
+
+  // Find and highlight the file
+  const fileItem = document.querySelector(`[data-path="${filePath}"]`);
+
+  if (!fileItem && retryCount < 3) {
+    // Retry if element not found yet (tree might still be rendering)
+    setTimeout(() => highlightFileInTree(filePath, retryCount + 1), 200);
+    return;
+  }
+
+  if (fileItem && fileItem.dataset.type === "file") {
+    fileItem.classList.add("active");
+
+    // Expand parent folders
+    let parent = fileItem.closest(".tree-children");
+    while (parent) {
+      parent.classList.add("open");
+      const toggleIcon =
+        parent.previousElementSibling?.querySelector(".toggle");
+      const folderIcon =
+        parent.previousElementSibling?.querySelector(".icon i");
+
+      if (toggleIcon) toggleIcon.classList.add("open");
+      if (folderIcon) {
+        folderIcon.classList.remove("fa-folder");
+        folderIcon.classList.add("fa-folder-open");
+      }
+
+      parent = parent.parentElement?.closest(".tree-children");
+    }
+
+    // Scroll file into view in sidebar
+    setTimeout(() => {
+      fileItem.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
+  }
 }
 
 // Initialize when DOM is ready
