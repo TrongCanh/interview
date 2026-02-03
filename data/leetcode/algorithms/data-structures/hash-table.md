@@ -218,6 +218,9 @@ function groupAnagrams(strs) {
 
 - [`../problems/easy/001-two-sum.md`](../problems/easy/001-two-sum.md)
 - [`../problems/easy/013-roman-to-integer.md`](../problems/easy/013-roman-to-integer.md)
+- [`../problems/medium/003-longest-substring-without-repeating-characters.md`](../problems/medium/003-longest-substring-without-repeating-characters.md)
+- [`../problems/medium/012-integer-to-roman.md`](../problems/medium/012-integer-to-roman.md)
+- [`../problems/medium/017-letter-combinations-of-a-phone-number.md`](../problems/medium/017-letter-combinations-of-a-phone-number.md)
 
 ---
 

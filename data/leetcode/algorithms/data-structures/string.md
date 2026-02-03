@@ -225,6 +225,12 @@ function romanToInt(s) {
 - [`../problems/easy/013-roman-to-integer.md`](../problems/easy/013-roman-to-integer.md)
 - [`../problems/easy/014-longest-common-prefix.md`](../problems/easy/014-longest-common-prefix.md)
 - [`../problems/easy/058-length-of-last-word.md`](../problems/easy/058-length-of-last-word.md)
+- [`../problems/medium/003-longest-substring-without-repeating-characters.md`](../problems/medium/003-longest-substring-without-repeating-characters.md)
+- [`../problems/medium/005-longest-palindromic-substring.md`](../problems/medium/005-longest-palindromic-substring.md)
+- [`../problems/medium/006-zigzag-conversion.md`](../problems/medium/006-zigzag-conversion.md)
+- [`../problems/medium/008-string-to-integer-atoi.md`](../problems/medium/008-string-to-integer-atoi.md)
+- [`../problems/medium/012-integer-to-roman.md`](../problems/medium/012-integer-to-roman.md)
+- [`../problems/medium/017-letter-combinations-of-a-phone-number.md`](../problems/medium/017-letter-combinations-of-a-phone-number.md)
 
 ---
 

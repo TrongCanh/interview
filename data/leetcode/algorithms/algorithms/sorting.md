@@ -422,6 +422,9 @@ console.log(sortStrings(["Zebra", "Apple", "Mango"])); // ['Apple', 'Mango', 'Ze
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
+- [`../problems/medium/015-3sum.md`](../problems/medium/015-3sum.md)
+- [`../problems/medium/016-3sum-closest.md`](../problems/medium/016-3sum-closest.md)
+
 - [Sort an Array](https://leetcode.com/problems/sort-an-array/)
 - [Sort Colors](https://leetcode.com/problems/sort-colors/)
 - [Valid Anagram](https://leetcode.com/problems/valid-anagram/)

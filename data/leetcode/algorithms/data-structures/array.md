@@ -218,6 +218,9 @@ function reverse(arr, start, end) {
 - [`../problems/easy/026-remove-duplicates-from-sorted-array.md`](../problems/easy/026-remove-duplicates-from-sorted-array.md)
 - [`../problems/easy/027-remove-element.md`](../problems/easy/027-remove-element.md)
 - [`../problems/easy/035-search-insert-position.md`](../problems/easy/035-search-insert-position.md)
+- [`../problems/medium/011-container-with-most-water.md`](../problems/medium/011-container-with-most-water.md)
+- [`../problems/medium/015-3sum.md`](../problems/medium/015-3sum.md)
+- [`../problems/medium/016-3sum-closest.md`](../problems/medium/016-3sum-closest.md)
 
 ---
 

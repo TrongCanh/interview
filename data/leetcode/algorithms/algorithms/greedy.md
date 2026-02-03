@@ -373,6 +373,9 @@ console.log(partitionLabels("ababcbacadefegdehijhklij", 3)); // [6, 6, 6, 6, 6, 
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
+- [`../problems/easy/026-remove-duplicates-from-sorted-array.md`](../problems/easy/026-remove-duplicates-from-sorted-array.md)
+- [`../problems/medium/011-container-with-most-water.md`](../problems/medium/011-container-with-most-water.md)
+
 - [Jump Game](https://leetcode.com/problems/jump-game/)
 - [Gas Station](https://leetcode.com/problems/gas-station/)
 - [Candy](https://leetcode.com/problems/candy/)

@@ -257,6 +257,9 @@ function fibonacci(n) {
 - [`../problems/easy/069-sqrtx.md`](../problems/easy/069-sqrtx.md)
 - [`../problems/easy/066-plus-one.md`](../problems/easy/066-plus-one.md)
 - [`../problems/easy/067-add-binary.md`](../problems/easy/067-add-binary.md)
+- [`../problems/medium/006-zigzag-conversion.md`](../problems/medium/006-zigzag-conversion.md)
+- [`../problems/medium/008-string-to-integer-atoi.md`](../problems/medium/008-string-to-integer-atoi.md)
+- [`../problems/medium/012-integer-to-roman.md`](../problems/medium/012-integer-to-roman.md)
 
 ---
 
