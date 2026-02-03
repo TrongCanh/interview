@@ -278,7 +278,7 @@ function evaluatePostfix(expression) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/006-valid-parentheses.md`](../problems/easy/006-valid-parentheses.md)
+- [`../problems/easy/020-valid-parentheses.md`](../problems/easy/020-valid-parentheses.md)
 
 ---
 

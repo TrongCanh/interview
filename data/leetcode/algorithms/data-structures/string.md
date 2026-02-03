@@ -222,9 +222,9 @@ function romanToInt(s) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/004-roman-to-integer.md`](../problems/easy/004-roman-to-integer.md)
-- [`../problems/easy/005-longest-common-prefix.md`](../problems/easy/005-longest-common-prefix.md)
-- [`../problems/easy/011-length-of-last-word.md`](../problems/easy/011-length-of-last-word.md)
+- [`../problems/easy/013-roman-to-integer.md`](../problems/easy/013-roman-to-integer.md)
+- [`../problems/easy/014-longest-common-prefix.md`](../problems/easy/014-longest-common-prefix.md)
+- [`../problems/easy/058-length-of-last-word.md`](../problems/easy/058-length-of-last-word.md)
 
 ---
 

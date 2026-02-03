@@ -220,9 +220,9 @@ function maxArea(height) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/003-palindrome-number.md`](../problems/easy/003-palindrome-number.md)
-- [`../problems/easy/008-remove-duplicates-from-sorted-array.md`](../problems/easy/008-remove-duplicates-from-sorted-array.md)
-- [`../problems/easy/009-remove-element.md`](../problems/easy/009-remove-element.md)
+- [`../problems/easy/009-palindrome-number.md`](../problems/easy/009-palindrome-number.md)
+- [`../problems/easy/026-remove-duplicates-from-sorted-array.md`](../problems/easy/026-remove-duplicates-from-sorted-array.md)
+- [`../problems/easy/027-remove-element.md`](../problems/easy/027-remove-element.md)
 
 ---
 

@@ -215,9 +215,9 @@ function reverse(arr, start, end) {
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
 - [`../problems/easy/001-two-sum.md`](../problems/easy/001-two-sum.md)
-- [`../problems/easy/008-remove-duplicates-from-sorted-array.md`](../problems/easy/008-remove-duplicates-from-sorted-array.md)
-- [`../problems/easy/009-remove-element.md`](../problems/easy/009-remove-element.md)
-- [`../problems/easy/010-search-insert-position.md`](../problems/easy/010-search-insert-position.md)
+- [`../problems/easy/026-remove-duplicates-from-sorted-array.md`](../problems/easy/026-remove-duplicates-from-sorted-array.md)
+- [`../problems/easy/027-remove-element.md`](../problems/easy/027-remove-element.md)
+- [`../problems/easy/035-search-insert-position.md`](../problems/easy/035-search-insert-position.md)
 
 ---
 

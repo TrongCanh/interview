@@ -137,25 +137,25 @@ Mỗi file thuật toán bao gồm:
 | #   | Tên bài toán / Problem Name         | File / File                                                                                              | Tags / Tags               |
 | --- | ----------------------------------- | -------------------------------------------------------------------------------------------------------- | ------------------------- |
 | 1   | Two Sum                             | [`001-two-sum.md`](problems/easy/001-two-sum.md)                                                         | Array, Hash Map           |
-| 2   | Reverse Integer                     | [`002-reverse-integer.md`](problems/easy/002-reverse-integer.md)                                         | Math                      |
-| 3   | Palindrome Number                   | [`003-palindrome-number.md`](problems/easy/003-palindrome-number.md)                                     | Two Pointers              |
-| 4   | Roman to Integer                    | [`004-roman-to-integer.md`](problems/easy/004-roman-to-integer.md)                                       | Hash Map                  |
-| 5   | Longest Common Prefix               | [`005-longest-common-prefix.md`](problems/easy/005-longest-common-prefix.md)                             | String                    |
-| 6   | Valid Parentheses                   | [`006-valid-parentheses.md`](problems/easy/006-valid-parentheses.md)                                     | Stack                     |
-| 7   | Merge Two Sorted Lists              | [`007-merge-two-sorted-lists.md`](problems/easy/007-merge-two-sorted-lists.md)                           | Linked List, Two Pointers |
-| 8   | Remove Duplicates from Sorted Array | [`008-remove-duplicates-from-sorted-array.md`](problems/easy/008-remove-duplicates-from-sorted-array.md) | Array, Two Pointers       |
-| 9   | Remove Element                      | [`009-remove-element.md`](problems/easy/009-remove-element.md)                                           | Array, Two Pointers       |
-| 10  | Search Insert Position              | [`010-search-insert-position.md`](problems/easy/010-search-insert-position.md)                           | Array, Binary Search      |
-| 11  | Length of Last Word                 | [`011-length-of-last-word.md`](problems/easy/011-length-of-last-word.md)                                 | String                    |
-| 12  | Plus One                            | [`012-plus-one.md`](problems/easy/012-plus-one.md)                                                       | Array, Math               |
-| 13  | Add Binary                          | [`013-add-binary.md`](problems/easy/013-add-binary.md)                                                   | String, Math              |
-| 14  | Sqrt(x)                             | [`014-sqrtx.md`](problems/easy/014-sqrtx.md)                                                             | Math, Binary Search       |
-| 15  | Climbing Stairs                     | [`015-climbing-stairs.md`](problems/easy/015-climbing-stairs.md)                                         | DP, Fibonacci             |
-| 16  | Remove Duplicates from Sorted List  | [`016-remove-duplicates-from-sorted-list.md`](problems/easy/016-remove-duplicates-from-sorted-list.md)   | Linked List               |
-| 17  | Merge Sorted Array                  | [`017-merge-sorted-array.md`](problems/easy/017-merge-sorted-array.md)                                   | Array, Two Pointers       |
-| 18  | Binary Tree Inorder Traversal       | [`018-binary-tree-inorder-traversal.md`](problems/easy/018-binary-tree-inorder-traversal.md)             | Tree, DFS                 |
-| 19  | Same Tree                           | [`019-same-tree.md`](problems/easy/019-same-tree.md)                                                     | Tree, DFS                 |
-| 20  | Symmetric Tree                      | [`020-symmetric-tree.md`](problems/easy/020-symmetric-tree.md)                                           | Tree, DFS, BFS            |
+| 7   | Reverse Integer                     | [`007-reverse-integer.md`](problems/easy/007-reverse-integer.md)                                         | Math                      |
+| 9   | Palindrome Number                   | [`009-palindrome-number.md`](problems/easy/009-palindrome-number.md)                                     | Two Pointers              |
+| 13  | Roman to Integer                    | [`013-roman-to-integer.md`](problems/easy/013-roman-to-integer.md)                                       | Hash Map                  |
+| 14  | Longest Common Prefix               | [`014-longest-common-prefix.md`](problems/easy/014-longest-common-prefix.md)                             | String                    |
+| 20  | Valid Parentheses                   | [`020-valid-parentheses.md`](problems/easy/020-valid-parentheses.md)                                     | Stack                     |
+| 21  | Merge Two Sorted Lists              | [`021-merge-two-sorted-lists.md`](problems/easy/021-merge-two-sorted-lists.md)                           | Linked List, Two Pointers |
+| 26  | Remove Duplicates from Sorted Array | [`026-remove-duplicates-from-sorted-array.md`](problems/easy/026-remove-duplicates-from-sorted-array.md) | Array, Two Pointers       |
+| 27  | Remove Element                      | [`027-remove-element.md`](problems/easy/027-remove-element.md)                                           | Array, Two Pointers       |
+| 35  | Search Insert Position              | [`035-search-insert-position.md`](problems/easy/035-search-insert-position.md)                           | Array, Binary Search      |
+| 58  | Length of Last Word                 | [`058-length-of-last-word.md`](problems/easy/058-length-of-last-word.md)                                 | String                    |
+| 66  | Plus One                            | [`066-plus-one.md`](problems/easy/066-plus-one.md)                                                       | Array, Math               |
+| 67  | Add Binary                          | [`067-add-binary.md`](problems/easy/067-add-binary.md)                                                   | String, Math              |
+| 69  | Sqrt(x)                             | [`069-sqrtx.md`](problems/easy/069-sqrtx.md)                                                             | Math, Binary Search       |
+| 70  | Climbing Stairs                     | [`070-climbing-stairs.md`](problems/easy/070-climbing-stairs.md)                                         | DP, Fibonacci             |
+| 83  | Remove Duplicates from Sorted List  | [`083-remove-duplicates-from-sorted-list.md`](problems/easy/083-remove-duplicates-from-sorted-list.md)   | Linked List               |
+| 88  | Merge Sorted Array                  | [`088-merge-sorted-array.md`](problems/easy/088-merge-sorted-array.md)                                   | Array, Two Pointers       |
+| 94  | Binary Tree Inorder Traversal       | [`094-binary-tree-inorder-traversal.md`](problems/easy/094-binary-tree-inorder-traversal.md)             | Tree, DFS                 |
+| 100 | Same Tree                           | [`100-same-tree.md`](problems/easy/100-same-tree.md)                                                     | Tree, DFS                 |
+| 101 | Symmetric Tree                      | [`101-symmetric-tree.md`](problems/easy/101-symmetric-tree.md)                                           | Tree, DFS, BFS            |
 
 ### Medium Problems / Bài toán Trung bình
 

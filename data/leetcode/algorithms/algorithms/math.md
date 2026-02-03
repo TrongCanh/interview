@@ -253,10 +253,10 @@ function fibonacci(n) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/002-reverse-integer.md`](../problems/easy/002-reverse-integer.md)
-- [`../problems/easy/014-sqrtx.md`](../problems/easy/014-sqrtx.md)
-- [`../problems/easy/012-plus-one.md`](../problems/easy/012-plus-one.md)
-- [`../problems/easy/013-add-binary.md`](../problems/easy/013-add-binary.md)
+- [`../problems/easy/007-reverse-integer.md`](../problems/easy/007-reverse-integer.md)
+- [`../problems/easy/069-sqrtx.md`](../problems/easy/069-sqrtx.md)
+- [`../problems/easy/066-plus-one.md`](../problems/easy/066-plus-one.md)
+- [`../problems/easy/067-add-binary.md`](../problems/easy/067-add-binary.md)
 
 ---
 

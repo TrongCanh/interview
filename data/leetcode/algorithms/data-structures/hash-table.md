@@ -217,7 +217,7 @@ function groupAnagrams(strs) {
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
 - [`../problems/easy/001-two-sum.md`](../problems/easy/001-two-sum.md)
-- [`../problems/easy/004-roman-to-integer.md`](../problems/easy/004-roman-to-integer.md)
+- [`../problems/easy/013-roman-to-integer.md`](../problems/easy/013-roman-to-integer.md)
 
 ---
 

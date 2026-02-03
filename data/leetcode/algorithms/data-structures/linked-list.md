@@ -333,7 +333,7 @@ function reverseList(head) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/007-merge-two-sorted-lists.md`](../problems/easy/007-merge-two-sorted-lists.md)
+- [`../problems/easy/021-merge-two-sorted-lists.md`](../problems/easy/021-merge-two-sorted-lists.md)
 
 ---
 

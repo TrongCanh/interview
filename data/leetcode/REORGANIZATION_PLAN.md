@@ -29,7 +29,7 @@ leetcode/
 ├── 📁 problems/                    # Bài toán LeetCode / LeetCode Problems
 │   ├── 📁 easy/                    # Dễ / Easy
 │   │   ├── 001-two-sum.md
-│   │   ├── 002-reverse-integer.md
+│   │   ├── 007-reverse-integer.md
 │   │   └── ...
 │   ├── 📁 medium/                  # Trung bình / Medium
 │   │   └── ...
