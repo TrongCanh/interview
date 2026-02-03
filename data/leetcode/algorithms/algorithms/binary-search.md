@@ -283,6 +283,7 @@ function mySqrt(x) {
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
 - [`../problems/easy/035-search-insert-position.md`](../problems/easy/035-search-insert-position.md)
+- [`../problems/hard/004-median-of-two-sorted-arrays.md`](../problems/hard/004-median-of-two-sorted-arrays.md)
 
 ---
 

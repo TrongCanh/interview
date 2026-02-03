@@ -1,134 +1,49 @@
 # Two Pointers / Hai con trỏ
 
-> Pattern sử dụng hai con trỏ để duyệt qua cấu trúc dữ liệu / Pattern using two pointers to traverse data structures
+> Kỹ thuật sử dụng hai con trỏ để duyệt qua mảng/chuỗi / Technique using two pointers to traverse array/string
 
 ---
 
 ## 📚 Khái niệm / Concept
 
-**Two Pointers** là một kỹ thuật sử dụng hai con trỏ để duyệt qua mảng hoặc danh sách liên kết. Hai con trỏ có thể di chuyển cùng hoặc ngược chiều, giúp giải quyết các bài toán một cách hiệu quả.
+**Two Pointers** là một kỹ thuật thuật toán sử dụng hai con trỏ (pointers) để duyệt qua cấu trúc dữ liệu như mảng hoặc chuỗi. Hai con trỏ thường di chuyển theo các hướng khác nhau để giải quyết bài toán.
 
-**Two Pointers** is a technique using two pointers to traverse arrays or linked lists. The pointers can move in same or opposite directions, helping solve problems efficiently.
+**Two Pointers** is an algorithmic technique that uses two pointers to traverse data structures like arrays or strings. Two pointers often move in different directions to solve problems.
+
+### Các loại Two Pointers / Types of Two Pointers
+
+1. **Con trỏ trái-phải (Left-Right Pointers):** Hai con trỏ bắt đầu từ hai đầu mảng, di chuyển về phía nhau
+2. **Con trỏ nhanh-chậm (Fast-Slow Pointers):** Hai con trỏ với tốc độ khác nhau, thường dùng để tìm cycle hoặc vị trí giữa
+3. **Con trỏ đầu-cuối (Head-Tail Pointers):** Một con trỏ ở đầu, một ở cuối, thường dùng cho Linked List
 
 ---
 
 ## 🎯 Khi nào dùng? / When to use?
 
 - **Dùng khi:**
-  - Cần tìm cặp phần tử thỏa mãn điều kiện
-  - Cần đảo ngược mảng
-  - Cần hợp nhất hai mảng đã sắp xếp
-  - Cần xóa phần tử trùng
+  - Cần tìm cặp phần tử thỏa mãn
   - Cần tìm subarray hoặc substring
+  - Cần tìm vị trí giữa
   - Mảng đã được sắp xếp
+  - Cần kiểm tra cycle trong Linked List
 
 - **Không dùng khi:**
-  - Cần duyệt qua nhiều mảng khác nhau
-  - Cần backtrack
-  - Cần duyệt theo thứ tự phức tạp
+  - Mảng không được sắp xếp
+  - Cần duyệt tuần tự qua từng phần tử
+  - Bài toán không có cấu trúc tuyến tính
 
 ---
 
 ## 🔄 Các biến thể / Variations
 
-### 1. Same Direction Pointers / Con trỏ cùng chiều
+### 1. Left-Right Pointers / Con trỏ trái-phải
 
-Hai con trỏ di chuyển cùng chiều, thường một nhanh hơn.
-
-```javascript
-let slow = 0;
-let fast = 0;
-
-while (fast < arr.length) {
-  // slow di chuyển chậm hơn
-  // fast di chuyển nhanh hơn
-}
-```
-
-### 2. Opposite Direction Pointers / Con trỏ ngược chiều
-
-Hai con trỏ từ hai đầu di chuyển vào giữa.
+Dùng để tìm cặp phần tử có tổng bằng target, hoặc kiểm tra palindrome.
 
 ```javascript
-let left = 0;
-let right = arr.length - 1;
-
-while (left < right) {
-  // left di chuyển từ trái sang phải
-  // right di chuyển từ phải sang trái
-}
-```
-
-### 3. Fast and Slow Pointers / Con trỏ nhanh và chậm
-
-Một con trỏ di chuyển nhanh hơn con trỏ kia, dùng để phát hiện cycle.
-
-```javascript
-let slow = head;
-let fast = head;
-
-while (fast && fast.next) {
-  slow = slow.next;
-  fast = fast.next.next;
-}
-```
-
----
-
-## 💡 Code Template / Mẫu Code
-
-### Template cơ bản / Basic Template (Opposite Direction)
-
-```javascript
-function twoPointersOpposite(arr) {
-  let left = 0;
-  let right = arr.length - 1;
-
-  while (left < right) {
-    const sum = arr[left] + arr[right];
-
-    if (sum === target) {
-      return [left, right];
-    } else if (sum < target) {
-      left++; // Tăng sum
-    } else {
-      right--; // Giảm sum
-    }
-  }
-
-  return [-1, -1]; // Không tìm thấy
-}
-```
-
-### Template nâng cao / Advanced Template (Same Direction)
-
-```javascript
-function twoPointersSameDirection(arr) {
-  let slow = 0;
-  let fast = 0;
-
-  while (fast < arr.length) {
-    // Xử lý với slow pointer
-    if (condition) {
-      slow++;
-    }
-    fast++;
-  }
-
-  return slow;
-}
-```
-
----
-
-## 📝 Ví dụ minh họa / Examples
-
-### Ví dụ 1: Two Sum (Sorted Array) / Tổng hai số
-
-```javascript
-function twoSumSorted(nums, target) {
-  let left = 0;
-  let right = nums.length - 1;
+function twoSum(nums, target) {
+  let left = 0,
+    right = nums.length - 1;
 
   while (left < right) {
     const sum = nums[left] + nums[right];
@@ -142,75 +57,213 @@ function twoSumSorted(nums, target) {
     }
   }
 
-  return [];
+  return null;
 }
 
 // Time: O(n), Space: O(1)
 ```
 
-### Ví dụ 2: Remove Duplicates from Sorted Array
+### 2. Fast-Slow Pointers / Con trỏ nhanh-chậm
+
+Dùng để tìm vị trí giữa của Linked List hoặc detect cycle.
 
 ```javascript
-function removeDuplicates(nums) {
-  let write = 0;
+function findMiddle(head) {
+  let slow = head,
+    fast = head;
 
-  for (let read = 1; read < nums.length; read++) {
-    if (nums[read] !== nums[write]) {
-      write++;
-      nums[write] = nums[read];
+  while (fast && fast.next) {
+    slow = slow.next;
+    fast = fast.next.next;
+
+    if (slow === fast) {
+      return slow; // Cycle detected
     }
   }
 
-  return write + 1;
+  return slow; // Middle node
 }
 
 // Time: O(n), Space: O(1)
 ```
 
-### Ví dụ 3: Palindrome Check / Kiểm tra palindrome
+### 3. Sliding Window / Cửa sổ trượt
+
+Dùng hai con trỏ để tạo cửa sổ trượt trên mảng/chuỗi.
 
 ```javascript
-function isPalindrome(s) {
+function maxSubarraySum(nums, k) {
+  let maxSum = 0,
+    windowSum = 0;
   let left = 0;
-  let right = s.length - 1;
+
+  for (let right = 0; right < nums.length; right++) {
+    windowSum += nums[right];
+
+    if (right - left + 1 > k) {
+      windowSum -= nums[left];
+      left++;
+    }
+
+    maxSum = Math.max(maxSum, windowSum);
+  }
+
+  return maxSum;
+}
+
+// Time: O(n), Space: O(1)
+```
+
+---
+
+## 💡 Code Template / Mẫu Code
+
+### Template cơ bản / Basic Template
+
+```javascript
+/**
+ * Two Pointers - Basic Template
+ * @param {Array} arr - Input array
+ * @return {*} - Result based on problem
+ */
+function twoPointersTemplate(arr) {
+  let left = 0,
+    right = arr.length - 1;
 
   while (left < right) {
-    if (s[left] !== s[right]) {
-      return false;
-    }
+    // Process based on pointers
+    // ...
+
+    // Move pointers
     left++;
     right--;
   }
 
-  return true;
+  return result;
 }
-
-// Time: O(n), Space: O(1)
 ```
 
-### Ví dụ 4: Container With Most Water
+### Template nâng cao / Advanced Template
 
 ```javascript
-function maxArea(height) {
-  let left = 0;
-  let right = height.length - 1;
-  let maxArea = 0;
+/**
+ * Two Pointers - Advanced Template with custom comparison
+ * @param {Array} arr - Input array
+ * @param {Function} shouldMove - Custom move function
+ * @return {*} - Result based on problem
+ */
+function twoPointersAdvanced(arr, shouldMove) {
+  let left = 0,
+    right = arr.length - 1;
 
   while (left < right) {
-    const width = right - left;
-    const minHeight = Math.min(height[left], height[right]);
-    const area = width * minHeight;
-
-    maxArea = Math.max(maxArea, area);
-
-    if (height[left] < height[right]) {
+    // Check condition
+    if (shouldMove(arr, left, right)) {
       left++;
     } else {
       right--;
     }
   }
 
+  return result;
+}
+```
+
+---
+
+## 📝 Ví dụ minh họa / Examples
+
+### Ví dụ 1: Two Sum / Tổng hai số
+
+**Mô tả:** Tìm hai số có tổng bằng target.
+
+**Code:**
+
+```javascript
+function twoSum(nums, target) {
+  let left = 0,
+    right = nums.length - 1;
+
+  while (left < right) {
+    const sum = nums[left] + nums[right];
+
+    if (sum === target) {
+      return [nums[left], nums[right]];
+    } else if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return [];
+}
+
+// twoSum([2,7,11,15], 9) = [2,7]
+// Time: O(n), Space: O(1)
+```
+
+### Ví dụ 2: Container With Most Water / Nước mưa
+
+**Mô tả:** Tính lượng nước mưa có thể thu.
+
+**Code:**
+
+```javascript
+function maxArea(height) {
+  let left = 0,
+    right = height.length - 1;
+  let maxArea = 0;
+  let leftMax = 0,
+    rightMax = 0;
+
+  while (left < right) {
+    leftMax = Math.max(leftMax, height[left]);
+    rightMax = Math.max(rightMax, height[right]);
+
+    const area = Math.min(leftMax, rightMax) * (right - left);
+    maxArea = Math.max(maxArea, area);
+
+    left++;
+    right--;
+  }
+
   return maxArea;
+}
+
+// maxArea([1,8,6,2,5,4,8,3,7]) = 49
+// Time: O(n), Space: O(1)
+```
+
+### Ví dụ 3: Remove Nth Node From End / Xóa nút thứ n từ cuối
+
+**Mô tả:** Xóa nút thứ n từ cuối Linked List.
+
+**Code:**
+
+```javascript
+function removeNthFromEnd(head, n) {
+  let dummy = new ListNode(0);
+  dummy.next = head;
+
+  let fast = dummy,
+    slow = dummy;
+
+  // Move fast n steps ahead
+  for (let i = 0; i < n; i++) {
+    fast = fast.next;
+  }
+
+  // Move both until fast reaches end
+  while (fast.next) {
+    slow = slow.next;
+    fast = fast.next;
+  }
+
+  // Remove the node after slow
+  slow.next = slow.next.next;
+
+  return dummy.next;
 }
 
 // Time: O(n), Space: O(1)
@@ -220,11 +273,8 @@ function maxArea(height) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/009-palindrome-number.md`](../problems/easy/009-palindrome-number.md)
-- [`../problems/easy/026-remove-duplicates-from-sorted-array.md`](../problems/easy/026-remove-duplicates-from-sorted-array.md)
-- [`../problems/easy/027-remove-element.md`](../problems/easy/027-remove-element.md)
-- [`../problems/medium/003-longest-substring-without-repeating-characters.md`](../problems/medium/003-longest-substring-without-repeating-characters.md)
-- [`../problems/medium/011-container-with-most-water.md`](../problems/medium/011-container-with-most-water.md)
+- [`../problems/easy/011-container-with-most-water.md`](../problems/easy/011-container-with-most-water.md)
+- [`../problems/hard/042-trapping-rain-water.md`](../problems/hard/042-trapping-rain-water.md)
 - [`../problems/medium/015-3sum.md`](../problems/medium/015-3sum.md)
 - [`../problems/medium/016-3sum-closest.md`](../problems/medium/016-3sum-closest.md)
 
@@ -232,39 +282,39 @@ function maxArea(height) {
 
 ## 📊 Độ phức tạp / Complexity
 
-| Loại / Type        | Time | Space | Mô tả / Description    |
-| ------------------ | ---- | ----- | ---------------------- |
-| Opposite Direction | O(n) | O(1)  | Hai con trỏ từ hai đầu |
-| Same Direction     | O(n) | O(1)  | Hai con trỏ cùng chiều |
-| Fast & Slow        | O(n) | O(1)  | Một nhanh một chậm     |
+| Loại / Type    | Time | Space | Mô tả / Description    |
+| -------------- | ---- | ----- | ---------------------- |
+| Left-Right     | O(n) | O(1)  | Tìm cặp, palindrome    |
+| Fast-Slow      | O(n) | O(1)  | Tìm giữa, detect cycle |
+| Sliding Window | O(n) | O(1)  | Subarray, substring    |
 
 ---
 
 ## ⚠️ Lỗi thường gặp / Common Pitfalls
 
-1. **Infinite loop**: Không cập nhật con trỏ đúng cách
-2. **Off-by-one**: Điều kiện dừng sai
-3. **Pointer collision**: Không xử lý khi hai con trỏ gặp nhau
-4. **Wrong direction**: Di chuyển con trỏ ngược chiều
-5. **Missing edge cases**: Không xử lý mảng rỗng hoặc 1 phần tử
+1. **Quên cập nhật cả hai con trỏ:** Chỉ cập nhật một con trỏ
+2. **Sai điều kiện dừng:** left < right vs left <= right
+3. **Integer overflow:** left + right có thể overflow
+4. **Quên edge cases:** Mảng rỗng, 1 phần tử
+5. **Sai hướng di chuyển:** Tăng thay vì giảm
 
 ---
 
 ## 💡 Tips & Tricks
 
-- Luôn kiểm tra điều kiện dừng (left < right, left <= right, etc.)
-- Vẽ hình để visualize movement của hai con trỏ
-- Dùng slow/fast pointers để phát hiện cycle
-- Dùng opposite direction cho bài toán sorted array
-- Dùng same direction cho bài toán subarray/substring
-- Cẩn thận với index out of bounds
+- Luôn kiểm tra edge cases
+- Vẽ hình để visualize movement của con trỏ
+- Sử dụng while thay vì for khi cần điều kiện phức tạp
+- Tên biến rõ ràng: left/right, slow/fast
+- Kiểm tra điều kiện trước khi di chuyển con trỏ
 
 ---
 
 ## 📚 Tài liệu tham khảo / References
 
+- [Two Pointers - Wikipedia](https://en.wikipedia.org/wiki/Two-pointer_technique)
 - [Two Pointers - LeetCode](https://leetcode.com/tag/two-pointers/)
-- [Two Pointers Technique](https://www.geeksforgeeks.org/two-pointers-technique/)
+- [Two Pointers - GeeksforGeeks](https://www.geeksforgeeks.org/two-pointer-technique/)
 
 ---
 

@@ -225,6 +225,8 @@ function romanToInt(s) {
 - [`../problems/easy/013-roman-to-integer.md`](../problems/easy/013-roman-to-integer.md)
 - [`../problems/easy/014-longest-common-prefix.md`](../problems/easy/014-longest-common-prefix.md)
 - [`../problems/easy/058-length-of-last-word.md`](../problems/easy/058-length-of-last-word.md)
+- [`../problems/hard/010-regular-expression-matching.md`](../problems/hard/010-regular-expression-matching.md)
+- [`../problems/hard/030-substring-with-concatenation-of-all-words.md`](../problems/hard/030-substring-with-concatenation-of-all-words.md)
 - [`../problems/medium/003-longest-substring-without-repeating-characters.md`](../problems/medium/003-longest-substring-without-repeating-characters.md)
 - [`../problems/medium/005-longest-palindromic-substring.md`](../problems/medium/005-longest-palindromic-substring.md)
 - [`../problems/medium/006-zigzag-conversion.md`](../problems/medium/006-zigzag-conversion.md)

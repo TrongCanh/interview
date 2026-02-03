@@ -484,7 +484,7 @@ console.log(topKFrequent([1], 1)); // [1]
 
 - [Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 - [Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
-- [Merge K Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/)
+- [`../problems/hard/023-merge-k-sorted-lists.md`](../problems/hard/023-merge-k-sorted-lists.md)
 - [Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [Task Scheduler](https://leetcode.com/problems/task-scheduler/)
 

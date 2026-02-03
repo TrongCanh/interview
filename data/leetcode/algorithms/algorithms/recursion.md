@@ -325,6 +325,8 @@ console.log(powerOptimized(2, 100)); // 1267650600228229401496703205376
 - [`../problems/medium/002-add-two-numbers.md`](../problems/medium/002-add-two-numbers.md)
 - [`../problems/medium/005-longest-palindromic-substring.md`](../problems/medium/005-longest-palindromic-substring.md)
 - [`../problems/medium/017-letter-combinations-of-a-phone-number.md`](../problems/medium/017-letter-combinations-of-a-phone-number.md)
+- [`../problems/hard/044-wildcard-matching.md`](../problems/hard/044-wildcard-matching.md)
+- [`../problems/hard/010-regular-expression-matching.md`](../problems/hard/010-regular-expression-matching.md)
 
 - [Climbing Stairs](../problems/easy/070-climbing-stairs.md)
 - [Fibonacci Number](https://leetcode.com/problems/fibonacci-number/)

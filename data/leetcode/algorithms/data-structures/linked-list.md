@@ -335,6 +335,8 @@ function reverseList(head) {
 
 - [`../problems/easy/021-merge-two-sorted-lists.md`](../problems/easy/021-merge-two-sorted-lists.md)
 - [`../problems/medium/002-add-two-numbers.md`](../problems/medium/002-add-two-numbers.md)
+- [`../problems/hard/023-merge-k-sorted-lists.md`](../problems/hard/023-merge-k-sorted-lists.md)
+- [`../problems/hard/025-reverse-nodes-in-k-group.md`](../problems/hard/025-reverse-nodes-in-k-group.md)
 
 ---
 

@@ -404,6 +404,7 @@ console.log(minSubarrayLength([1, 1, 1, 1, 1, 1, 1], 11)); // 11
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
 - [`../problems/medium/003-longest-substring-without-repeating-characters.md`](../problems/medium/003-longest-substring-without-repeating-characters.md)
+- [`../problems/hard/030-substring-with-concatenation-of-all-words.md`](../problems/hard/030-substring-with-concatenation-of-all-words.md)
 
 - [Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
 - [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)

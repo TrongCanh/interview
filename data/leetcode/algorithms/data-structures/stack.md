@@ -279,6 +279,8 @@ function evaluatePostfix(expression) {
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
 - [`../problems/easy/020-valid-parentheses.md`](../problems/easy/020-valid-parentheses.md)
+- [`../problems/hard/032-longest-valid-parentheses.md`](../problems/hard/032-longest-valid-parentheses.md)
+- [`../problems/hard/042-trapping-rain-water.md`](../problems/hard/042-trapping-rain-water.md)
 
 ---
 

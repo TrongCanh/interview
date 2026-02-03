@@ -389,6 +389,7 @@ console.log(maxSubarraySum([1, 2, 3, 4, 5])); // 15
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
+- [`../problems/hard/004-median-of-two-sorted-arrays.md`](../problems/hard/004-median-of-two-sorted-arrays.md)
 - [Sort an Array](https://leetcode.com/problems/sort-an-array/)
 - [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)
 - [Kth Largest Element](https://leetcode.com/problems/kth-largest-element-in-an-array/)
