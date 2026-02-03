@@ -60,13 +60,6 @@
 
       <!-- Content Area -->
       <main class="content">
-        <!-- Breadcrumb -->
-        <div class="breadcrumb" id="breadcrumb">
-          <span class="breadcrumb-item"
-            ><i class="fas fa-home"></i> interview-practice</span
-          >
-        </div>
-
         <!-- Content Wrapper: contains filePreview and tocSidebar -->
         <div class="content-wrapper">
           <!-- File Preview -->
@@ -119,5 +112,27 @@
     </footer>
 
     <script src="app.js"></script>
+    <script>
+      // Hot reload using Server-Sent Events
+      if (
+        window.location.hostname === "localhost" ||
+        window.location.hostname === "127.0.0.1"
+      ) {
+        const eventSource = new EventSource("/api/events");
+
+        eventSource.onmessage = function (event) {
+          if (event.data === "reload") {
+            console.log("🔄 Reloading page due to file changes...");
+            eventSource.close();
+            window.location.reload();
+          }
+        };
+
+        eventSource.onerror = function (error) {
+          console.error("SSE connection error:", error);
+          eventSource.close();
+        };
+      }
+    </script>
   </body>
 </html>

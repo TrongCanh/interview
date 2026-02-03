@@ -4,6 +4,7 @@
   "description": "A simple project viewer for interview-practice",
   "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js --watch public --ext js,html,css --ignore node_modules",
     "build": "echo 'No build needed'"
   },
   "keywords": [
@@ -14,6 +15,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "chokidar": "^4.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.2"
   },

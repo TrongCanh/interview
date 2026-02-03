@@ -7,14 +7,18 @@ const express = require("express");
 const cors = require("cors");
 const fs = require("fs").promises;
 const path = require("path");
+const chokidar = require("chokidar");
 
 const app = express();
 const PORT = 3000;
 
+// Store SSE clients
+const sseClients = new Set();
+
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(".")); // Serve from root directory for both local and Vercel compatibility
+app.use(express.static("public")); // Serve from public directory to match Vercel deployment
 
 // Path đến thư mục data (chứa nội dung interview-practice)
 const INTERVIEW_PRACTICE_PATH = path.join(__dirname, "data");
@@ -206,12 +210,54 @@ async function searchFiles(dirPath, relativePath, query, results) {
   }
 }
 
+// SSE endpoint for hot reload
+app.get("/api/events", (req, res) => {
+  // Set headers for SSE
+  res.setHeader("Content-Type", "text/event-stream");
+  res.setHeader("Cache-Control", "no-cache");
+  res.setHeader("Connection", "keep-alive");
+
+  // Add client to set
+  sseClients.add(res);
+
+  // Send initial connection message
+  res.write("data: connected\n\n");
+
+  // Remove client on disconnect
+  req.on("close", () => {
+    sseClients.delete(res);
+  });
+});
+
+// Function to notify all clients to reload
+function notifyReload() {
+  sseClients.forEach((client) => {
+    try {
+      client.write("data: reload\n\n");
+    } catch (err) {
+      // Remove disconnected clients
+      sseClients.delete(client);
+    }
+  });
+}
+
 // Start server (chỉ chạy khi không phải trên Vercel)
 if (require.main === module) {
   app.listen(PORT, () => {
     console.log(`\n🚀 Interview Practice Viewer đang chạy tại:`);
     console.log(`   http://localhost:${PORT}\n`);
     console.log(`📁 Đang đọc từ: ${INTERVIEW_PRACTICE_PATH}\n`);
+
+    // Watch public directory for changes
+    const watcher = chokidar.watch("public", {
+      ignored: /(^|[\/\\])\../, // ignore dotfiles
+      persistent: true,
+    });
+
+    watcher.on("change", (path) => {
+      console.log(`📝 File changed: ${path}`);
+      notifyReload();
+    });
   });
 }
 

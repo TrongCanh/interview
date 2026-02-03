@@ -8,7 +8,6 @@ const API_BASE = "/api";
 // DOM Elements
 const fileTree = document.getElementById("fileTree");
 const filePreview = document.getElementById("filePreview");
-const breadcrumb = document.getElementById("breadcrumb");
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("searchBtn");
 const refreshBtn = document.getElementById("refreshBtn");
@@ -285,7 +284,6 @@ async function loadFileContent(filePath) {
 
     if (result.success) {
       renderFileContent(result.data);
-      updateBreadcrumb(filePath);
       updateFileInfo(result.data);
       updateStatus("Đã tải file");
       saveLastFile(filePath);
@@ -387,24 +385,6 @@ function renderFileContent(fileData) {
   }
 
   filePreview.innerHTML = content;
-}
-
-/**
- * Update breadcrumb
- * @param {string} filePath - Đường dẫn file
- */
-function updateBreadcrumb(filePath) {
-  const parts = filePath.split("/");
-  let html =
-    '<span class="breadcrumb-item"><i class="fas fa-home"></i> interview-practice</span>';
-
-  parts.forEach((part, index) => {
-    html +=
-      '<span class="breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>';
-    html += `<span class="breadcrumb-item">${part}</span>`;
-  });
-
-  breadcrumb.innerHTML = html;
 }
 
 /**
