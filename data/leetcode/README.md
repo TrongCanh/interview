@@ -236,7 +236,7 @@ Mỗi file thuật toán bao gồm:
 
 | Độ khó / Difficulty | Số bài đã làm / Completed | Tổng / Total | %   |
 | ------------------- | ------------------------- | ------------ | --- |
-| Easy                | 0                         | 20           | 0%  |
+| Easy                | 10                        | 20           | 50% |
 | Medium              | 0                         | 5            | 0%  |
 | Hard                | 0                         | 1            | 0%  |
 

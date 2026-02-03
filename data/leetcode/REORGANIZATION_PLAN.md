@@ -571,18 +571,39 @@ _Last updated: [date]_
 ## 🔄 Quy trình làm việc / Workflow
 
 1. **Tạo file bài toán mới:**
-   - Copy template từ template-problem.md
-   - Điền thông tin bài toán
-   - Copy đề bài nguyên bản từ LeetCode
-   - Phân tích và viết 3 giải pháp
-   - Tạo file thuật toán nếu chưa có
+    - Copy template từ template-problem.md
+    - Điền thông tin bài toán
+    - Copy đề bài nguyên bản từ LeetCode
+    - Phân tích và viết 3 giải pháp
+    - **QUAN TRỌNG:** Nếu bài toán sử dụng thuật toán hoặc cấu trúc dữ liệu nào chưa có, **PHẢI TẠO FILE THUẬT TOÁN TRƯỚC**, rồi mới tạo file bài toán
 
 2. **Tạo file thuật toán mới:**
-   - Copy template từ template-algorithm.md
-   - Điền thông tin thuật toán
-   - Viết code template
-   - Thêm ví dụ minh họa
-   - Liên kết với các bài toán liên quan
+    - Copy template từ template-algorithm.md
+    - Điền thông tin thuật toán
+    - Viết code template
+    - Thêm ví dụ minh họa
+    - Liên kết với các bài toán liên quan
+
+## ⚠️ Quy tắc quan trọng / Important Rules
+
+### 1. Trình tự tạo file / File Creation Order
+- **Luôn tạo thuật toán trước khi cần dùng cho bài toán:**
+  - Nếu bài toán sử dụng thuật toán hoặc cấu trúc dữ liệu chưa có, phải tạo file thuật toán trước
+  - Sau đó mới tạo file bài toán và liên kết đến thuật toán đã tạo
+  - Điều này đảm bảo tính nhất quán và dễ dàng tham chiếu
+
+### 2. Giải thích chi tiết / Detailed Explanation
+- **Ý tưởng tư duy và thuật toán:**
+  - Giải thích kỹ hơn về ý tưởng tư duy bài toán, thuật toán
+  - Giống như người giảng viên đang chỉ cho sinh viên
+  - Không chỉ viết code, mà phải giải thích TẠI SAO và TẠI NHƯ THẾ
+
+### 3. So sánh giải pháp / Solution Comparison
+- **Giải thích tại sao chọn phương án thay đổi:**
+  - Phải giải thích rõ ràng lợi ích của giải pháp mới so với giải pháp cũ
+  - Ví dụ: "Tại sao cần cải tiến? Giải pháp Brute Force quá chậm với mảng lớn"
+  - Ví dụ: "Điểm yếu của giải pháp 1? Tốn thêm không gian cho chuỗi"
+  - Điều này giúp người đọc hiểu được tiến trình tư duy
 
 ---
 
