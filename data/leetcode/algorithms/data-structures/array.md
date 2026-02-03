@@ -265,6 +265,42 @@ function reverse(arr, start, end) {
 
 ---
 
+## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems Using This
+
+- [001 Two Sum](../problems/easy/001-two-sum.md)
+- [002 Add Two Numbers](../problems/medium/002-add-two-numbers.md)
+- [003 Longest Substring Without Repeating Characters](../problems/medium/003-longest-substring-without-repeating-characters.md)
+- [005 Longest Palindromic Substring](../problems/medium/005-longest-palindromic-substring.md)
+- [006 Zigzag Conversion](../problems/medium/006-zigzag-conversion.md)
+- [008 String to Integer (atoi)](../problems/medium/008-string-to-integer-atoi.md)
+- [011 Container With Most Water](../problems/medium/011-container-with-most-water.md)
+- [012 Integer to Roman](../problems/medium/012-integer-to-roman.md)
+- [015 3Sum](../problems/medium/015-3sum.md)
+- [016 3Sum Closest](../problems/medium/016-3sum-closest.md)
+- [017 Letter Combinations of a Phone Number](../problems/medium/017-letter-combinations-of-a-phone-number.md)
+- [018 4Sum](../problems/medium/018-4sum.md)
+- [019 Remove Nth Node From End of List](../problems/medium/019-remove-nth-node-from-end-of-list.md)
+- [020 Valid Parentheses](../problems/medium/020-valid-parentheses.md)
+- [021 Merge Two Sorted Lists](../problems/medium/021-merge-two-sorted-lists.md)
+- [022 Generate Parentheses](../problems/medium/022-generate-parentheses.md)
+- [024 Swap Nodes in Pairs](../problems/medium/024-swap-nodes-in-pairs.md)
+- [026 Remove Duplicates from Sorted Array](../problems/medium/026-remove-duplicates-from-sorted-array.md)
+- [027 Remove Element](../problems/medium/027-remove-element.md)
+- [028 Find the Index of the First Occurrence in a String](../problems/medium/028-find-the-index-of-the-first-occurrence-in-a-string.md)
+- [029 Divide Two Integers](../problems/medium/029-divide-two-integers.md)
+- [031 Next Permutation](../problems/medium/031-next-permutation.md)
+- [033 Search in Rotated Sorted Array](../problems/medium/033-search-in-rotated-sorted-array.md)
+- [034 Find First and Last Position of Element in Sorted Array](../problems/medium/034-find-first-and-last-position-of-element-in-sorted-array.md)
+- [039 Combination Sum](../problems/medium/039-combination-sum.md)
+- [040 Combination Sum II](../problems/medium/040-combination-sum-ii.md)
+- [043 Multiply Strings](../problems/medium/043-multiply-strings.md)
+- [045 Jump Game II](../problems/medium/045-jump-game-ii.md)
+- [046 Permutations](../problems/medium/046-permutations.md)
+- [047 Permutations II](../problems/medium/047-permutations-ii.md)
+- [048 Rotate Image](../problems/medium/048-rotate-image.md)
+
+---
+
 ## 📚 Tài liệu tham khảo / References
 
 - [MDN - Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)

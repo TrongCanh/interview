@@ -297,6 +297,15 @@ function fibonacci(n) {
 
 ---
 
+## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems Using This
+
+- [012 Integer to Roman](../problems/medium/012-integer-to-roman.md)
+- [029 Divide Two Integers](../problems/medium/029-divide-two-integers.md)
+- [043 Multiply Strings](../problems/medium/043-multiply-strings.md)
+- [048 Rotate Image](../problems/medium/048-rotate-image.md)
+
+---
+
 ## 📚 Tài liệu tham khảo / References
 
 - [Math Object - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math)

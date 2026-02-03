@@ -424,6 +424,7 @@ console.log(sortStrings(["Zebra", "Apple", "Mango"])); // ['Apple', 'Mango', 'Ze
 
 - [`../problems/medium/015-3sum.md`](../problems/medium/015-3sum.md)
 - [`../problems/medium/016-3sum-closest.md`](../problems/medium/016-3sum-closest.md)
+- [`../problems/medium/018-4sum.md`](../problems/medium/018-4sum.md)
 - [`../problems/hard/041-first-missing-positive.md`](../problems/hard/041-first-missing-positive.md)
 
 - [Sort an Array](https://leetcode.com/problems/sort-an-array/)

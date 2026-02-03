@@ -415,6 +415,13 @@ console.log(partitionLabels("ababcbacadefegdehijhklij", 3)); // [6, 6, 6, 6, 6, 
 
 ---
 
+## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems Using This
+
+- [011 Container With Most Water](../problems/medium/011-container-with-most-water.md)
+- [045 Jump Game II](../problems/medium/045-jump-game-ii.md)
+
+---
+
 ## 📚 Tài liệu tham khảo / References
 
 - [Greedy Algorithm - Wikipedia](https://en.wikipedia.org/wiki/Greedy_algorithm)
@@ -423,4 +430,4 @@ console.log(partitionLabels("ababcbacadefegdehijhklij", 3)); // [6, 6, 6, 6, 6, 
 
 ---
 
-_Last updated: 2025-02-03_
+_Last updated: 2026-02-03_

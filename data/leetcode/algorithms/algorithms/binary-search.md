@@ -318,6 +318,13 @@ function mySqrt(x) {
 
 ---
 
+## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems Using This
+
+- [033 Search in Rotated Sorted Array](../problems/medium/033-search-in-rotated-sorted-array.md)
+- [034 Find First and Last Position of Element in Sorted Array](../problems/medium/034-find-first-and-last-position-of-element-in-sorted-array.md)
+
+---
+
 ## 📚 Tài liệu tham khảo / References
 
 - [Binary Search - Wikipedia](https://en.wikipedia.org/wiki/Binary_search_algorithm)

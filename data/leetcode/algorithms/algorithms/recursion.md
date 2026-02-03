@@ -321,7 +321,7 @@ console.log(powerOptimized(2, 100)); // 1267650600228229401496703205376
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/021-merge-two-sorted-lists.md`](../problems/easy/021-merge-two-sorted-lists.md)
+- [`../problems/medium/021-merge-two-sorted-lists.md`](../problems/medium/021-merge-two-sorted-lists.md)
 - [`../problems/medium/002-add-two-numbers.md`](../problems/medium/002-add-two-numbers.md)
 - [`../problems/medium/005-longest-palindromic-substring.md`](../problems/medium/005-longest-palindromic-substring.md)
 - [`../problems/medium/017-letter-combinations-of-a-phone-number.md`](../problems/medium/017-letter-combinations-of-a-phone-number.md)

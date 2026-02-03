@@ -1,89 +1,60 @@
 # Backtracking / Quay lui
 
-> Thuật toán tìm kiếm tất cả các giải pháp bằng cách thử từng khả năng và quay lui khi gặp bế tắc / Search algorithm that tries all possibilities and backtracks when stuck
+> Thuật toán Backtracking - Giải thích chi tiết / Backtracking Algorithm - Detailed Explanation
 
 ---
 
 ## 📚 Khái niệm / Concept
 
-**Backtracking** là một kỹ thuật thuật toán tìm kiếm tất cả các giải pháp cho một bài toán bằng cách xây dựng dần dần các giải pháp và "quay lui" (backtrack) khi phát hiện giải pháp hiện tại không thể dẫn đến giải pháp hợp lệ.
+**Backtracking** (Quay lui) là một kỹ thuật thuật toán dùng để tìm tất cả các giải pháp có thể cho một bài toán, bằng cách thử từng khả năng và quay lui (backtrack) khi gặp đường cùng.
 
-**Backtracking** is an algorithmic technique that finds all solutions to a problem by incrementally building solutions and "backtracking" when the current solution cannot lead to a valid solution.
+**Backtracking** is an algorithmic technique used to find all possible solutions to a problem by trying each possibility and backtracking when hitting a dead end.
 
-### Nguyên lý hoạt động / How it works
+### Các khái niệm cơ bản / Basic Concepts
 
-1. **Build (Xây dựng):** Thêm từng phần tử vào giải pháp hiện tại
-2. **Check (Kiểm tra):** Kiểm tra giải pháp hiện tại có hợp lệ không
-3. **Backtrack (Quay lui):** Nếu không hợp lệ, quay lại bước trước
-4. **Repeat (Lặp lại):** Tiếp tục cho đến khi tìm được tất cả giải pháp
+- **State Space (Không gian trạng thái):** Tập hợp các trạng thái có thể của bài toán
+- **Decision Tree (Cây quyết định):** Cây biểu diễn quá trình tìm kiếm
+- **Backtrack (Quay lui):** Quay lại trạng thái trước khi gặp đường cùng
+- **Pruning (Cắt nhánh):** Loại bỏ các nhánh không cần thiết để tối ưu
+- **Base Case (Trường hợp cơ sở):** Điều kiện dừng đệ quy
+
+### Ví dụ thực tế / Real-world Examples
+
+- **N-Queens Problem:** Đặt n quân hậu trên bàn cờ nxn sao cho không ai ăn được ai
+- **Sudoku Solver:** Điền số vào bảng Sudoku
+- **Generate Parentheses:** Tạo tất cả chuỗi ngoặc hợp lệ
+- **Subset Problem:** Tìm tất cả các tập con của một tập hợp
 
 ---
 
 ## 🎯 Khi nào dùng? / When to use?
 
 - **Dùng khi:**
-  - Cần tìm TẤT CẢ các giải pháp
-  - Bài toán có nhiều bước quyết định
-  - Cần thử tất cả các khả năng
-  - Có thể xác định nhanh khi một giải pháp không hợp lệ
+  - Cần tìm tất cả các giải pháp có thể
+  - Bài toán có cấu trúc cây quyết định rõ ràng
+  - Cần thử từng khả năng và quay lui
+  - Bài toán generate/combinatorial
 
 - **Không dùng khi:**
-  - Chỉ cần một giải pháp (dùng greedy hoặc DP)
-  - Không thể xác định nhanh khi không hợp lệ
-  - Không gian tìm kiếm quá lớn
+  - Chỉ cần một giải pháp
+  - Bài toán có thể giải bằng greedy
+  - Cần tối ưu hiệu năng (backtracking thường chậm)
 
 ---
 
 ## 🔄 Các biến thể / Variations
 
-### 1. Standard Backtracking / Quay lui chuẩn
+### 1. Standard Backtracking / Quay lui tiêu chuẩn
 
-Dùng cho các bài toán như N-Queens, Sudoku, Permutations.
+Thử từng khả năng, quay lui khi gặp đường cùng.
 
-```javascript
-function backtrack(current, n, result) {
-  // Base case: found a solution
-  if (isValidSolution(current)) {
-    result.push([...current]);
-    return;
-  }
+### 2. Backtracking with Pruning / Quay lui với cắt nhánh
 
-  // Try each possibility
-  for (let i = 0; i < n; i++) {
-    current.push(i);
+Cắt các nhánh không cần thiết để tối ưu.
 
-    if (isValid(current)) {
-      backtrack(current, n, result);
-    }
+### 3. Backtracking with Memoization / Quay lui với memoization
 
-    current.pop(); // Backtrack
-  }
-}
-```
-
-### 2. Backtracking with Pruning / Quay lui với cắt tỉa
-
-Tối ưu bằng cách cắt tỉa các nhánh không thể dẫn đến giải pháp.
-
-```javascript
-function backtrackWithPruning(current, n, result) {
-  if (isValidSolution(current)) {
-    result.push([...current]);
-    return;
-  }
-
-  for (let i = 0; i < n; i++) {
-    // Prune: skip if this can't lead to solution
-    if (!canLeadToSolution(current, i)) {
-      continue;
-    }
-
-    current.push(i);
-    backtrackWithPruning(current, n, result);
-    current.pop();
-  }
-}
-```
+Lưu kết quả để tránh tính lại.
 
 ---
 
@@ -93,30 +64,30 @@ function backtrackWithPruning(current, n, result) {
 
 ```javascript
 /**
- * Backtracking - Basic Template
- * @param {Array} current - Current solution being built
- * @param {Array} result - Array to store all valid solutions
+ * Template Backtracking cơ bản - Basic Backtracking Template
+ * @param {Array} input - Mảng đầu vào
+ * @return {Array} - Mảng các giải pháp
  */
-function backtrack(current, result) {
-  // Base case: found a valid solution
-  if (isComplete(current)) {
-    result.push([...current]);
-    return;
-  }
+function backtrackingTemplate(input) {
+  const result = [];
 
-  // Try each possible choice
-  for (const choice of getChoices(current)) {
-    // Make a choice
-    current.push(choice);
-
-    // If valid, continue exploring
-    if (isValid(current)) {
-      backtrack(current, result);
+  function backtrack(index, current) {
+    // Base case: đã xử lý hết phần tử
+    if (index === input.length) {
+      result.push([...current]);
+      return;
     }
 
-    // Undo the choice (backtrack)
-    current.pop();
+    // Thử từng khả năng
+    for (let i = index; i < input.length; i++) {
+      current.push(input[i]);
+      backtrack(i + 1, current);
+      current.pop(); // Quay lui
+    }
   }
+
+  backtrack(0, []);
+  return result;
 }
 ```
 
@@ -124,29 +95,46 @@ function backtrack(current, result) {
 
 ```javascript
 /**
- * Backtracking - Advanced Template with Pruning
- * @param {Array} current - Current solution being built
- * @param {number} start - Starting index for choices
- * @param {Array} result - Array to store all valid solutions
+ * Template Backtracking nâng cao - Advanced Backtracking Template
+ * Bao gồm pruning và memoization
+ * @param {Array} input - Mảng đầu vào
+ * @return {Array} - Mảng các giải pháp
  */
-function backtrackAdvanced(current, start, result) {
-  // Base case
-  if (isComplete(current)) {
-    result.push([...current]);
-    return;
-  }
+function backtrackingAdvancedTemplate(input) {
+  const result = [];
+  const memo = new Set();
 
-  // Try each choice from start onwards
-  for (let i = start; i < getNumChoices(); i++) {
-    // Pruning: skip invalid choices early
-    if (!canChoose(current, i)) {
-      continue;
+  function backtrack(index, current) {
+    // Base case
+    if (index === input.length) {
+      const key = current.join(",");
+      if (!memo.has(key)) {
+        memo.add(key);
+        result.push([...current]);
+      }
+      return;
     }
 
-    current.push(i);
-    backtrackAdvanced(current, i + 1, result);
-    current.pop();
+    // Pruning: kiểm tra điều kiện cắt nhánh
+    if (!isValid(current)) {
+      return;
+    }
+
+    // Thử từng khả năng
+    for (let i = index; i < input.length; i++) {
+      current.push(input[i]);
+      backtrack(i + 1, current);
+      current.pop(); // Quay lui
+    }
   }
+
+  backtrack(0, []);
+  return result;
+}
+
+function isValid(arr) {
+  // Hàm kiểm tra tính hợp lệ để pruning
+  return true; // Tùy bài toán
 }
 ```
 
@@ -154,86 +142,183 @@ function backtrackAdvanced(current, start, result) {
 
 ## 📝 Ví dụ minh họa / Examples
 
-### Ví dụ 1: Permutations / Hoán vị
+### Ví dụ 1: Generate Parentheses / Tạo dấu ngoặc
 
-**Mô tả:** Tìm tất cả hoán vị của một mảng.
+**Mô tả:** Tạo tất cả chuỗi ngoặc hợp lệ với n cặp.
 
 **Code:**
 
 ```javascript
-function permute(nums) {
+/**
+ * Generate Parentheses - Backtracking Solution
+ * @param {number} n - Số lượng cặp ngoặc
+ * @return {string[]} - Mảng tất cả chuỗi ngoặc hợp lệ
+ */
+function generateParentheses(n) {
   const result = [];
-  backtrack([], nums, result);
+
+  function backtrack(current, open, close) {
+    // Base case: đã dùng đủ n cặp ngoặc
+    if (open === close && open === n) {
+      result.push(current);
+      return;
+    }
+
+    // Pruning: nếu số ngoặc đóng bằng số ngoặc mở, không thể thêm ngoặc mở
+    if (close === open) {
+      backtrack(current + "(", open + 1, close);
+      return;
+    }
+
+    // Thêm ngoặc mở nếu còn có thể thêm
+    if (open < n) {
+      backtrack(current + "(", open + 1, close);
+    }
+
+    // Thêm ngoặc đóng nếu còn có thể thêm
+    if (close < open) {
+      backtrack(current + ")", open, close + 1);
+    }
+  }
+
+  backtrack("", 0, 0);
   return result;
 }
 
-function backtrack(current, remaining, result) {
-  if (remaining.length === 0) {
-    result.push([...current]);
-    return;
-  }
-
-  for (let i = 0; i < remaining.length; i++) {
-    current.push(remaining[i]);
-    backtrack(
-      current,
-      [...remaining.slice(0, i), ...remaining.slice(i + 1)],
-      result,
-    );
-    current.pop();
-  }
-}
-
-// permute([1,2,3]) = [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
-// Time: O(n*n!), Space: O(n!)
+// generateParentheses(3) = ["((()))","(()())","(())()","()(())","()()()","()(()","()()","((()))"]
+// Time: O(4^n / sqrt(n)), Space: O(n)
 ```
 
-### Ví dụ 2: N-Queens / N-Queens
+### Ví dụ 2: Subsets / Tập con
 
-**Mô tả:** Đặt n quân hậu trên bàn cờ n×n sao cho không quân nào ăn nhau.
+**Mô tả:** Tìm tất cả các tập con của một tập hợp.
 
 **Code:**
 
 ```javascript
-function solveNQueens(n) {
+/**
+ * Subsets - Tìm tất cả tập con
+ * @param {number[]} nums - Mảng số
+ * @return {number[][]} - Mảng tất cả tập con
+ */
+function subsets(nums) {
   const result = [];
-  backtrack([], n, result);
+
+  function backtrack(index, current) {
+    // Base case: đã xử lý hết phần tử
+    if (index === nums.length) {
+      result.push([...current]);
+      return;
+    }
+
+    // Thử từng khả năng: bao gồm hoặc không bao gồm phần tử hiện tại
+    current.push(nums[index]);
+    backtrack(index + 1, current);
+    current.pop(); // Quay lui
+
+    // Không bao gồm phần tử hiện tại
+    backtrack(index + 1, current);
+  }
+
+  backtrack(0, []);
   return result;
 }
 
-function backtrack(current, n, result) {
-  if (current.length === n) {
-    result.push([...current]);
-    return;
-  }
+// subsets([1,2,3]) = [[],[1],[2],[3],[1,2],[1,3],[2,3],[1,2,3]]
+// Time: O(2^n), Space: O(n)
+```
 
-  const row = current.length;
-  for (let col = 0; col < n; col++) {
-    if (isValid(current, row, col)) {
-      current.push(col);
-      backtrack(current, n, result);
-      current.pop();
+### Ví dụ 3: Permutations / Hoán vị
+
+**Mô tả:** Tìm tất cả các hoán vị của một tập hợp.
+
+**Code:**
+
+```javascript
+/**
+ * Permutations - Tìm tất cả hoán vị
+ * @param {number[]} nums - Mảng số
+ * @return {number[][]} - Mảng tất cả hoán vị
+ */
+function permutations(nums) {
+  const result = [];
+
+  function backtrack(index, current) {
+    // Base case: đã xử lý hết phần tử
+    if (index === nums.length) {
+      result.push([...current]);
+      return;
+    }
+
+    // Thử từng khả năng
+    for (let i = index; i < nums.length; i++) {
+      // Swap để tránh trùng lặp
+      [current[index], current[i]] = [current[i], current[index]];
+      backtrack(index + 1, current);
+      // Swap lại
+      [current[index], current[i]] = [current[i], current[index]];
     }
   }
+
+  backtrack(0, []);
+  return result;
 }
 
-function isValid(current, row, col) {
-  for (let i = 0; i < current.length; i++) {
-    const prevRow = i;
-    const prevCol = current[i];
+// permutations([1,2,3]) = [[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+// Time: O(n!), Space: O(n!)
+```
 
-    // Check column and diagonals
-    if (
-      prevCol === col ||
-      Math.abs(prevRow - row) === Math.abs(prevCol - col)
-    ) {
-      return false;
+### Ví dụ 4: N-Queens / N quân hậu
+
+**Mô tả:** Đặt n quân hậu trên bàn cờ nxn sao cho không ai ăn được ai.
+
+**Code:**
+
+```javascript
+/**
+ * N-Queens - Đặt n quân hậu
+ * @param {number} n - Số lượng quân hậu
+ * @return {string[][]} - Mảng các giải pháp
+ */
+function solveNQueens(n) {
+  const result = [];
+  const board = Array.from({ length: n }, () => Array(n).fill("."));
+
+  function backtrack(row, cols, diag1, diag2) {
+    // Base case: đã đặt hết n quân hậu
+    if (row === n) {
+      result.push(board.map((r) => r.join("")));
+      return;
+    }
+
+    // Thử từng cột
+    for (let col = 0; col < n; col++) {
+      // Kiểm tra xem có thể đặt quân hậu không
+      if (cols.has(col) || diag1.has(row - col) || diag2.has(row + col)) {
+        continue; // Cắt nhánh
+      }
+
+      // Đặt quân hậu
+      board[row][col] = "Q";
+      cols.add(col);
+      diag1.add(row - col);
+      diag2.add(row + col);
+
+      backtrack(row + 1, cols, diag1, diag2);
+
+      // Quay lui
+      board[row][col] = ".";
+      cols.delete(col);
+      diag1.delete(row - col);
+      diag2.delete(row + col);
     }
   }
-  return true;
+
+  backtrack(0, new Set(), new Set(), new Set());
+  return result;
 }
 
-// solveNQueens(4) returns 2 solutions
+// solveNQueens(4) = [".Q...", ...] (2 giải pháp)
 // Time: O(n!), Space: O(n)
 ```
 
@@ -241,44 +326,59 @@ function isValid(current, row, col) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/hard/037-sudoku-solver.md`](../problems/hard/037-sudoku-solver.md)
-- [Permutations](https://leetcode.com/problems/permutations/)
-- [N-Queens](https://leetcode.com/problems/n-queens/)
-- [Combination Sum](https://leetcode.com/problems/combination-sum/)
+- [`../problems/medium/022-generate-parentheses.md`](../problems/medium/022-generate-parentheses.md)
+- [`../problems/medium/017-letter-combinations-of-a-phone-number.md`](../problems/medium/017-letter-combinations-of-a-phone-number.md)
+
 - [Subsets](https://leetcode.com/problems/subsets/)
+- [Subsets II](https://leetcode.com/problems/subsets-ii/)
+- [Permutations](https://leetcode.com/problems/permutations/)
+- [Permutations II](https://leetcode.com/problems/permutations-ii/)
+- [N-Queens](https://leetcode.com/problems/n-queens/)
 - [Word Search](https://leetcode.com/problems/word-search/)
+- [Combination Sum](https://leetcode.com/problems/combination-sum/)
 
 ---
 
 ## 📊 Độ phức tạp / Complexity
 
-| Loại / Type  | Time     | Space | Mô tả / Description |
-| ------------ | -------- | ----- | ------------------- |
-| Permutations | O(n\*n!) | O(n)  | n! hoán vị          |
-| Subsets      | O(2^n)   | O(n)  | 2^n tập con         |
-| N-Queens     | O(n!)    | O(n)  | n! cách đặt         |
-| Sudoku       | O(9^m)   | O(m)  | m ô trống           |
+| Loại bài toán / Problem Type | Time Complexity | Space Complexity | Ghi chú / Notes      |
+| ---------------------------- | --------------- | ---------------- | -------------------- |
+| Generate Parentheses         | O(4^n / √n)     | O(n)             | Catalan numbers      |
+| Subsets                      | O(2^n)          | O(n)             | 2^n tập con          |
+| Permutations                 | O(n!)           | O(n)             | n! hoán vị           |
+| N-Queens                     | O(n!)           | O(n)             | Cắt nhánh quan trọng |
 
 ---
 
 ## ⚠️ Lỗi thường gặp / Common Pitfalls
 
-1. **Quên backtrack:** Không pop sau khi đệ quy
-2. **Không copy mảng:** Tham chiếu thay vì copy khi lưu kết quả
-3. **Cắt tỉa sai:** Cắt tỉa quá nhiều hoặc quá ít
-4. **Base case sai:** Không xác định đúng điều kiện dừng
-5. **Tính toán lại:** Không dùng memoization cho các bài toán con lặp lại
+1. **Quên quay lui:** Không pop sau khi đệ quy trả về
+2. **Không có base case:** Không có điều kiện dừng, gây vô hạn
+3. **Không pruning:** Duyệt qua tất cả nhánh, rất chậm
+4. **Sai điều kiện pruning:** Cắt nhánh sai, mất giải pháp
+5. **Memory leak:** Không xóa mảng tạm khi không dùng
 
 ---
 
 ## 💡 Tips & Tricks
 
-- Luôn backtrack sau khi đệ quy
-- Copy mảng khi lưu vào result
-- Dùng pruning để tối ưu
-- Vẽ cây quyết định để visualize
-- Xác định rõ base case
-- Kiểm tra tính lặp lại, có thể dùng memoization
+1. **Pruning:** Luôn tìm cách cắt nhánh để tối ưu
+2. **Base Case:** Xác định base case rõ ràng
+3. **Copy Array:** Dùng spread operator `[...arr]` để copy mảng
+4. **Set for O(1):** Dùng Set để kiểm tra tồn tại nhanh hơn
+5. **Backtrack Order:** Luôn pop sau khi đệ quy trả về
+6. **Memoization:** Khi tính lại cùng giá trị, dùng memoization
+7. **Swap Trick:** Với hoán vị, dùng swap để tránh trùng lặp
+
+---
+
+## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems Using This
+
+- [022 Generate Parentheses](../problems/medium/022-generate-parentheses.md)
+- [039 Combination Sum](../problems/medium/039-combination-sum.md)
+- [040 Combination Sum II](../problems/medium/040-combination-sum-ii.md)
+- [046 Permutations](../problems/medium/046-permutations.md)
+- [047 Permutations II](../problems/medium/047-permutations-ii.md)
 
 ---
 
@@ -286,7 +386,7 @@ function isValid(current, row, col) {
 
 - [Backtracking - Wikipedia](https://en.wikipedia.org/wiki/Backtracking)
 - [Backtracking - GeeksforGeeks](https://www.geeksforgeeks.org/backtracking-algorithms/)
-- [Backtracking - LeetCode](https://leetcode.com/tag/backtracking/)
+- [Catalan Numbers - Wikipedia](https://en.wikipedia.org/wiki/Catalan_number)
 
 ---
 

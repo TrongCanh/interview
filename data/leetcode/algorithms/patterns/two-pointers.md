@@ -273,10 +273,12 @@ function removeNthFromEnd(head, n) {
 
 ## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems using this
 
-- [`../problems/easy/011-container-with-most-water.md`](../problems/easy/011-container-with-most-water.md)
+- [`../problems/medium/011-container-with-most-water.md`](../problems/medium/011-container-with-most-water.md)
 - [`../problems/hard/042-trapping-rain-water.md`](../problems/hard/042-trapping-rain-water.md)
 - [`../problems/medium/015-3sum.md`](../problems/medium/015-3sum.md)
 - [`../problems/medium/016-3sum-closest.md`](../problems/medium/016-3sum-closest.md)
+- [`../problems/medium/018-4sum.md`](../problems/medium/018-4sum.md)
+- [`../problems/medium/019-remove-nth-node-from-end-of-list.md`](../problems/medium/019-remove-nth-node-from-end-of-list.md)
 
 ---
 
@@ -307,6 +309,15 @@ function removeNthFromEnd(head, n) {
 - Sử dụng while thay vì for khi cần điều kiện phức tạp
 - Tên biến rõ ràng: left/right, slow/fast
 - Kiểm tra điều kiện trước khi di chuyển con trỏ
+
+---
+
+## 🎯 Bài toán LeetCode sử dụng / LeetCode Problems Using This
+
+- [003 Longest Substring Without Repeating Characters](../problems/medium/003-longest-substring-without-repeating-characters.md)
+- [005 Longest Palindromic Substring](../problems/medium/005-longest-palindromic-substring.md)
+- [031 Next Permutation](../problems/medium/031-next-permutation.md)
+- [034 Find First and Last Position of Element in Sorted Array](../problems/medium/034-find-first-and-last-position-of-element-in-sorted-array.md)
 
 ---
 

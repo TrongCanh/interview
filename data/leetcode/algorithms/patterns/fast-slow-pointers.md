@@ -510,6 +510,7 @@ console.log(getIntersectionNode(node1, node4)?.val); // 2
 - [Middle of the Linked List](https://leetcode.com/problems/middle-of-the-linked-list/)
 - [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
 - [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
+- [`../problems/medium/019-remove-nth-node-from-end-of-list.md`](../problems/medium/019-remove-nth-node-from-end-of-list.md)
 
 ---
 
